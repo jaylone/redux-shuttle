@@ -1,7 +1,6 @@
+var path = require('path');
+
 module.exports = {
-  entry: [
-    'src/index.js'
-  ],
   module: {
     loaders: [
       {
@@ -23,5 +22,9 @@ module.exports = {
         loader: "file-loader"
       }
     ]
+  },
+  resolve: {
+    root: path.resolve(__dirname, ''),
+    extensions: ['', '.js']
   }
 }

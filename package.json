@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/jaylone/redux-saga-shuttle#readme",
   "dependencies": {
-    "humps": "^2.0.0",
     "ramda": "^0.22.1",
     "redux": "^3.6.0",
     "redux-saga": "^0.13.0"

@@ -4,9 +4,11 @@ var commonConfig = require('./webpack.common.config');
 
 module.exports = Object.assign(commonConfig, {
   src: './src',
-  entry: './src/index',
+  entry: [
+    './example/src/entry.js'
+  ],
   output: {
-    path: path.join(__dirname, '/dist/'),
+    path: path.join(__dirname, '/bundle/'),
     filename: 'index.js',
     publicPath: '/assets/'
   },

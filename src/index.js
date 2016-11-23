@@ -1,17 +1,7 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import underscored from './lib/underscored';
+import createShuttle from './lib/createShuttle';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        Hello World.
-      </div>
-    )
-  }
+export {
+  underscored,
+  createShuttle
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
