@@ -1,15 +1,17 @@
-import path from 'path';
-import commonConfig from './webpack.common.config';
+var path = require('path');
+var webpack = require('webpack');
+var commonConfig = require('./webpack.common.config');
 
-export default Object.assign(commonConfig, {
-  entry: [
-    'webpack-hot-middleware/client',
-    './src/index'
-  ],
+module.exports = Object.assign(commonConfig, {
+  src: './src',
+  entry: './src/index',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, '/dist/'),
     filename: 'index.js',
     publicPath: '/assets/'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   devtool: 'source-map',
 });
