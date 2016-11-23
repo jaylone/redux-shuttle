@@ -1,7 +1,7 @@
 {
-  "name": "redux-saga-shuttle",
+  "name": "redux-shuttle",
   "version": "0.0.1",
-  "description": "A tool for bundling reducers, action types and actions when using redux and saga, aesthetic toppings fro your redux meal.",
+  "description": "A tool for bundling reducers, action types and actions when using redux, aesthetic toppings fro your redux meal.",
   "main": "./dist/index.js",
   "scripts": {
     "start": "node server.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaylone/redux-saga-shuttle.git"
+    "url": "git+https://github.com/jaylone/redux-shuttle.git"
   },
   "keywords": [
     "redux",
@@ -20,9 +20,9 @@
   "author": "jaylone",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jaylone/redux-saga-shuttle/issues"
+    "url": "https://github.com/jaylone/redux-shuttle/issues"
   },
-  "homepage": "https://github.com/jaylone/redux-saga-shuttle#readme",
+  "homepage": "https://github.com/jaylone/redux-shuttle#readme",
   "dependencies": {
     "ramda": "^0.22.1",
     "redux": "^3.6.0",
