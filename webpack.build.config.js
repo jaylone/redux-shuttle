@@ -9,7 +9,7 @@ module.exports = Object.assign(commonConfig, {
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: 'index.js',
-    library: 'ReduxSagaShuttle',
+    library: 'ReduxShuttle',
     libraryTarget: 'umd'
   },
   plugins: [

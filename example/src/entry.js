@@ -1,4 +1,4 @@
-import createShuttle from 'src/index';
+import createShuttle from 'dist/index';
 
 const initState = {
   list: [],
