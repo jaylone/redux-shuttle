@@ -4,8 +4,6 @@ import keyMirror from 'src/util/keyMirror';
 import underscored from 'src/util/underscored';
 import validator from 'src/util/validator';
 
-console.log(createShuttle);
-
 export {
   createShuttle as default,
   createReducer,
