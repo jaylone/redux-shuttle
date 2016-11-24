@@ -1,5 +1,4 @@
 import { pipe, keys, isEmpty, map, reduce, filter, mapObjIndexed, zipObj } from 'ramda';
-import createReducer from './createReducer';
 import { upperSnakeCase } from 'src/util/underscored';
 import { isNull, isUndefined, isFunction, isObject, isArray, isString } from 'src/util/validator';
 import keyMirror from 'src/util/keyMirror';
@@ -43,14 +42,13 @@ export default (state, config) => {
   }
 
   const actions = {};
-  const units = {};
+  const handlers = {};
 
-  createActionsAndReducer(actions, units, state, config);
+  createActionsAndReducer(actions, handlers, state, config);
 
   return {
     Types: createTypes(config),
     actions: actions,
-    units: units,
-    reducer: createReducer(state, units)
+    handlers: handlers
   }
 }
