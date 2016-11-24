@@ -15,7 +15,10 @@
   "keywords": [
     "redux",
     "saga",
-    "redux-saga"
+    "redux-saga",
+    "side effects",
+    "shuttle",
+    "redux-shuttle"
   ],
   "author": "jaylone",
   "license": "MIT",

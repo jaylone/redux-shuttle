@@ -51,6 +51,6 @@ export default (state, config) => {
     Types: createTypes(config),
     actions: actions,
     units: units,
-    reducer: createReducer(units)
+    reducer: createReducer(state, units)
   }
 }
