@@ -1,14 +1,5 @@
 const toString = Object.prototype.toString;
 
-const isBuffer = (obj) => {
-  return !!(obj != null &&
-  (obj._isBuffer || // For Safari 5-7 (missing Object.prototype.constructor)
-    (obj.constructor &&
-    typeof obj.constructor.isBuffer === 'function' &&
-    obj.constructor.isBuffer(obj))
-  ))
-};
-
 const typeOf = (val) => {
   if (typeof val === 'undefined') {
     return 'undefined';
@@ -55,11 +46,6 @@ const typeOf = (val) => {
   }
   if (type === '[object Arguments]') {
     return 'arguments';
-  }
-
-  // buffer
-  if (typeof Buffer !== 'undefined' && isBuffer(val)) {
-    return 'buffer';
   }
 
   // es6: Map, WeakMap, Set, WeakSet
@@ -147,7 +133,6 @@ const isString = (str) => {
 
 export {
   typeOf,
-  isBuffer,
   isArray,
   isObject,
   isNull,
