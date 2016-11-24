@@ -1,4 +1,5 @@
-import { pipe, keys, isEmpty, map, reduce, filter, mapObjIndexed, zipObj } from 'ramda';
+import { pipe, keys, isEmpty, map, reduce, filter, mapObjIndexed, zipObj, merge } from 'ramda';
+import createReducer from 'src/lib/createReducer';
 import { upperSnakeCase } from 'src/util/underscored';
 import { isNull, isUndefined, isFunction, isObject, isArray, isString } from 'src/util/validator';
 import keyMirror from 'src/util/keyMirror';
@@ -10,7 +11,7 @@ const createActionsAndReducer = (actions, units, state, config) => mapObjIndexed
 
   if (isArray(item)) {
     const params = filter((value) => isString(value), item);
-    actions[key] = (...args) => Object.assign({ type }, zipObj(params, args));
+    actions[key] = (...args) => merge({ type }, zipObj(params, args));
 
     const reducers = filter((value) => isFunction(value), item);
     if (reducers.length > 0) units[type] = reducers[0];
@@ -49,6 +50,7 @@ export default (state, config) => {
   return {
     Types: createTypes(config),
     actions: actions,
-    handlers: handlers
+    handlers: handlers,
+    reducer: createReducer(state, handlers)
   }
 }
