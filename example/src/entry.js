@@ -6,18 +6,16 @@ const initState = {
   visible: false
 }
 
-// const shuttle = createShuttle(initState, {
-//   setList: ['list', (state, action) => {
-//     return Object.assign({}, state, {list: action.list});
-//   }],
-//   setName: ['name', (state, action) => {
-//     return Object.assign({}, state, {list: action.name});
-//   }],
-//   toggleModal: (state, action) => {
-//     return Object.assign({}, state, {visible: !state.visible});
-//   }
-// });
-//
-// console.log(shuttle);
+const shuttle = createShuttle(initState, {
+  setList: ['list', (state, action) => {
+    return Object.assign({}, state, {list: action.list});
+  }],
+  setName: ['name', (state, action) => {
+    return Object.assign({}, state, {list: action.name});
+  }],
+  toggleModal: (state, action) => {
+    return Object.assign({}, state, {visible: !state.visible});
+  }
+});
 
-console.log(createShuttle);
+console.log(shuttle);
