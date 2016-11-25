@@ -16,9 +16,9 @@ const createActionsAndReducer = (actions, handlers, state, config) => mapObjInde
     const reducers = filter((value) => isFunction(value), item);
     if (reducers.length > 0) handlers[type] = reducers[0];
   } else if (isNull(item) || isUndefined(item)) {
-    actions[key] = () => { type };
+    actions[key] = () => { return { type } };
   } else if (isFunction(item)) {
-    actions[key] = () => { type };
+    actions[key] = () => { return { type } };
     handlers[type] = item;
   } else {
     throw new Error(`Type of '${ key }' should be array, function, null or undefined.`);

@@ -20,5 +20,6 @@ export default createShuttle(initState, {
   fetchList: ['param'],
   recieveList: ['data', (state, actions) => {
     return Object.assign({}, state, data)
-  }]
+  }],
+  fetchAll: null
 });

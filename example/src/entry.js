@@ -5,6 +5,8 @@ import { Provider, connect } from 'react-redux';
 
 import { actions, reducer as author } from './shuttle';
 
+console.log(actions.fetchAll());
+
 const reducers = combineReducers({ author });
 
 @connect(state => state, dispatch => {
