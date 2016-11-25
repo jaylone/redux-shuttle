@@ -6,7 +6,7 @@ import keyMirror from 'src/util/keyMirror';
 
 const createTypes = pipe(keys, map(upperSnakeCase), keyMirror);
 
-const createActionsAndReducer = (actions, units, state, config) => mapObjIndexed((item, key) => {
+const createActionsAndReducer = (actions, handlers, state, config) => mapObjIndexed((item, key) => {
   const type = upperSnakeCase(key);
 
   if (isArray(item)) {
@@ -14,12 +14,12 @@ const createActionsAndReducer = (actions, units, state, config) => mapObjIndexed
     actions[key] = (...args) => merge({ type }, zipObj(params, args));
 
     const reducers = filter((value) => isFunction(value), item);
-    if (reducers.length > 0) units[type] = reducers[0];
+    if (reducers.length > 0) handlers[type] = reducers[0];
   } else if (isNull(item) || isUndefined(item)) {
-    actions[key] = () => type;
+    actions[key] = () => { type };
   } else if (isFunction(item)) {
-    actions[key] = () => type;
-    units[type] = item;
+    actions[key] = () => { type };
+    handlers[type] = item;
   } else {
     throw new Error(`Type of '${ key }' should be array, function, null or undefined.`);
   }
