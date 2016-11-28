@@ -4,10 +4,21 @@ import { upperSnakeCase } from 'src/util/underscored';
 import { isNull, isUndefined, isFunction, isObject, isArray, isString } from 'src/util/validator';
 import keyMirror from 'src/util/keyMirror';
 
-const createTypes = pipe(keys, map(upperSnakeCase), keyMirror);
+const addNamespace = (namespace, type) => {
+  if ( isNull(namespace) || isUndefined(namespace) ) return type;
 
-const createActionsAndReducer = (actions, handlers, state, config) => mapObjIndexed((item, key) => {
-  const type = upperSnakeCase(key);
+  const prefix = namespace.substr(namespace.length-1) === '/' ? namespace : `${namespace}/`;
+  return prefix + upperSnakeCase(type);
+}
+
+const createTypes = (namespace, config) => {
+  const names = keys(config);
+  const values = map((type)=>addNamespace(namespace, type));
+  return zipObj(names, values);
+}
+
+const createActionsAndReducer = (actions, handlers, state, config, namespace) => mapObjIndexed((item, key) => {
+  const type = addNamespace(namespace, key);
 
   if (isArray(item)) {
     const params = filter((value) => isString(value), item);
@@ -25,9 +36,15 @@ const createActionsAndReducer = (actions, handlers, state, config) => mapObjInde
   }
 }, config);
 
-export default (state, config) => {
+export default (namespace, state, config) => {
   if (arguments.length < 2) {
     throw new Error('Initial state and config is required for shuttle.');
+  }
+
+  if (!isString(namespace)) {
+    config = state;
+    state = namespace;
+    namespace = undefined;
   }
 
   if (isNull(state) || isUndefined(state)) {
@@ -44,13 +61,14 @@ export default (state, config) => {
 
   const actions = {};
   const handlers = {};
+  const types = createTypes(namespace, config);
 
-  createActionsAndReducer(actions, handlers, state, config);
+  createActionsAndReducer(actions, handlers, state, config, namespace);
 
   return {
-    Types: createTypes(config),
-    actions: actions,
-    handlers: handlers,
+    types,
+    actions,
+    handlers,
     reducer: createReducer(state, handlers)
   }
 }
