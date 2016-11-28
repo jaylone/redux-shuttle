@@ -3,10 +3,11 @@ import ReactDom from 'react-dom';
 import { createStore, combineReducers, bindActionCreators } from 'redux';
 import { Provider, connect } from 'react-redux';
 
-import { actions, reducer as author } from './shuttle';
+import { actions, reducer as author, types } from './shuttle';
 
 console.log(actions.fetchAll());
 
+console.log(types);
 const reducers = combineReducers({ author });
 
 @connect(state => state, dispatch => {

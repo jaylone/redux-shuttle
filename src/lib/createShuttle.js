@@ -13,7 +13,7 @@ const addNamespace = (namespace, type) => {
 
 const createTypes = (namespace, config) => {
   const names = keys(config);
-  const values = map((type)=>addNamespace(namespace, type));
+  const values = map((type)=>addNamespace(namespace, type))(names);
   return zipObj(names, values);
 }
 
