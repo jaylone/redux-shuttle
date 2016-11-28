@@ -4,6 +4,8 @@ import { upperSnakeCase } from 'src/util/underscored';
 import { isNull, isUndefined, isFunction, isObject, isArray, isString } from 'src/util/validator';
 import keyMirror from 'src/util/keyMirror';
 
+const REDUCER_KEY = '@@redux-shuttle/REDUCER';
+
 const addNamespace = (namespace, type) => {
   if ( isNull(namespace) || isUndefined(namespace) ) return type;
 
@@ -69,6 +71,6 @@ export default (namespace, state, config) => {
     types,
     actions,
     handlers,
-    reducer: createReducer(state, handlers)
+    reducer: createReducer(state, handlers, REDUCER_KEY)
   }
 }

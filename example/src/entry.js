@@ -5,9 +5,6 @@ import { Provider, connect } from 'react-redux';
 
 import { actions, reducer as author, types } from './shuttle';
 
-console.log(actions.fetchAll());
-
-console.log(types);
 const reducers = combineReducers({ author });
 
 @connect(state => state, dispatch => {
@@ -26,7 +23,7 @@ class App extends Component {
   render() {
     const props = this.props;
 
-    console.log(props)
+    console.log(props);
 
     return (
       <div>
