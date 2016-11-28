@@ -7,8 +7,8 @@ const initState = {
   visible: false
 }
 
-export default createShuttle(initState, {
-  setList: ['list',  (state, action) => {
+export default createShuttle('App',initState, {
+  setList: ['list',  (state, action) => { console.log(action)
     return Object.assign({}, state, {list: action.list});
   }],
   setName: ['name', (state, action) => {
