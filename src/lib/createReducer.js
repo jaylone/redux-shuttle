@@ -4,11 +4,11 @@ import { defineProperty } from 'src/util/helper';
 
 const wrapState = (state, attach) => {
 
-  if (!isObject(state) || isObject(attach)) {
+  if (!isObject(state) || !isObject(attach)) {
     return state;
   }
 
-  const propKey = keys[attach][0];
+  const propKey = keys(attach)[0];
 
   if (isNull(propKey) || isUndefined(propKey)) {
     return state;
