@@ -1,13 +1,24 @@
-import { isObject, isString } from 'src/util/validator';
+import { isObject, isString, isUndefined, isNull } from 'src/util/validator';
+import { keys } from 'ramda';
+import { defineProperty } from 'src/util/helper';
 
-const defineProperty = Object.defineProperty;
+const wrapState = (state, attach) => {
 
-const wrapState = (uniqKey, propKey, state) => {
-  uniqKey && defineProperty(state, propKey, {value: uniqKey});
+  if (!isObject(state) || isObject(attach)) {
+    return state;
+  }
+
+  const propKey = keys[attach][0];
+
+  if (isNull(propKey) || isUndefined(propKey)) {
+    return state;
+  }
+
+  defineProperty(state, propKey, attach[propKey]);
   return state;
 }
 
-export default function createReducer(initialState, handlers, REDUCER_KEY) {
+export default function createReducer(initialState, handlers, attach) {
   if (arguments.length < 2) {
     throw new Error('Initial state and handlers is required.');
   }
@@ -16,18 +27,14 @@ export default function createReducer(initialState, handlers, REDUCER_KEY) {
     throw new Error('Handlers needed a plain object.');
   }
 
-  const uniqKey = isString(REDUCER_KEY) ? Symbol() : '';
-
   return (state = initialState, action) => {
     const handler = (action && action.type) ? handlers[action.type] : undefined;
 
     if (!handler) {
-      return wrapState(uniqKey, REDUCER_KEY, state);
+      return wrapState(state, attach);
     }
 
-    const nextState = wrapState(uniqKey, REDUCER_KEY, handler(state, action));
-
-    console.log('initialState', nextState[REDUCER_KEY] === state[REDUCER_KEY]);
+    const nextState = wrapState(handler(state, action), attach);
 
     return nextState;
   };

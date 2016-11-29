@@ -3,8 +3,7 @@ import createReducer from 'src/lib/createReducer';
 import { upperSnakeCase } from 'src/util/underscored';
 import { isNull, isUndefined, isFunction, isObject, isArray, isString } from 'src/util/validator';
 import keyMirror from 'src/util/keyMirror';
-
-const REDUCER_KEY = '@@redux-shuttle/REDUCER';
+import { REDUCER_KEY, SHUTTLE_KEY, genKey, defineProperty } from 'src/util/helper';
 
 const addNamespace = (namespace, type) => {
   if ( isNull(namespace) || isUndefined(namespace) ) return type;
@@ -67,10 +66,11 @@ export default (namespace, state, config) => {
 
   createActionsAndReducer(actions, handlers, state, config, namespace);
 
-  return {
+  const gid = genKey(SHUTTLE_KEY);
+  return defineProperty({
     types,
     actions,
     handlers,
-    reducer: createReducer(state, handlers, REDUCER_KEY)
-  }
+    reducer: createReducer(state, handlers, {[REDUCER_KEY]: gid})
+  }, SHUTTLE_KEY, gid);
 }
