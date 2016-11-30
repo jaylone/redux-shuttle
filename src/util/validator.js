@@ -131,7 +131,7 @@ const isString = (str) => {
   return typeOf(str) === 'string';
 };
 
-export {
+export default {
   typeOf,
   isArray,
   isObject,

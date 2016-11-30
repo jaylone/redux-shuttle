@@ -10,8 +10,8 @@ const upperSnakeCase = pipe(underscored, toUpper);
 
 const lowerSnakeCase = pipe(underscored, toLower);
 
-export {
-  underscored as default,
+export default {
+  underscored,
   upperSnakeCase,
   lowerSnakeCase
 }

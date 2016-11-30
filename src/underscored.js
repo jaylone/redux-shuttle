@@ -1,4 +1,4 @@
-import underscored from './util/underscored.js';
+import underscored from 'src/util/underscored.js';
 
 export default {
   ...underscored

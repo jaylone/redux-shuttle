@@ -4,7 +4,7 @@ import { createStore, combineReducers, bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 
 import { bindShuttle, createShuttleTree } from 'dist/index';
-import * as helper from 'dist/helper';
+import helper from 'dist/underscored';
 import shuttle from './shuttle';
 
 console.log(helper);
@@ -36,7 +36,7 @@ class App extends Component {
 
 ReactDom.render(
   <Provider store={createStore(reducers)}>
-    <App />
+    <App wrapperName="jaylone"/>
   </Provider>,
   document.getElementById('root')
 );
