@@ -2,7 +2,6 @@ import { keys, isEmpty, map, reduce, filter, mapObjIndexed, zipObj, merge } from
 import createReducer from 'src/lib/createReducer';
 import { upperSnakeCase } from 'src/util/underscored';
 import { isNull, isUndefined, isFunction, isObject, isArray, isString } from 'src/util/validator';
-import keyMirror from 'src/util/keyMirror';
 import { REDUCER_KEY, SHUTTLE_KEY, genKey, defineProperty } from 'src/util/helper';
 
 const addNamespace = (namespace, type) => {

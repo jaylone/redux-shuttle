@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import { createStore, combineReducers, bindActionCreators } from 'redux';
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
 
-import { actions, reducer as author, types } from './shuttle';
+import { bindShuttle, createShuttleTree } from 'dist/index';
+import { helper } from 'dist/helper';
+import shuttle from './shuttle';
 
-const reducers = combineReducers({ author });
+console.log(helper);
 
-@connect(state => state, dispatch => {
-  return {
-    actions: bindActionCreators(actions, dispatch),
-    dispatch
-  }
-})
+const reducers = createShuttleTree({ shuttle });
+
+@bindShuttle(shuttle)
 class App extends Component {
   setList() {
     const props = this.props;
@@ -28,7 +27,7 @@ class App extends Component {
     return (
       <div>
         <p>Hello world.</p>
-        <p>{ props.author.list.join(' ') }</p>
+        <p>{ props.list.join(' ') }</p>
         <button onClick={::this.setList}>Set List</button>
       </div>
     )

@@ -1,4 +1,4 @@
-import { createShuttle, createReducer } from 'src/index';
+import { createShuttle, createReducer } from 'dist/index';
 import { combineReducers } from 'redux';
 
 const initState = {

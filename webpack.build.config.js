@@ -3,12 +3,16 @@ var webpack = require('webpack');
 var commonConfig = require('./webpack.common.config');
 
 module.exports = Object.assign(commonConfig, {
-  entry: [
-    './src/index.js'
-  ],
+  entry: {
+    index: './src/index.js',
+    helper: './src/helper.js',
+    underscored: './src/underscored.js',
+    validator: './src/validator.js'
+  },
   output: {
     path: path.join(__dirname, '/dist/'),
-    filename: 'index.js',
+    chunkFilename: '[name].js',
+    filename: '[name].js',
     library: 'ReduxShuttle',
     libraryTarget: 'umd'
   },
