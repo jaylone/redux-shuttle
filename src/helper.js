@@ -1,1 +1,5 @@
-export { helper } from './util/helper';
+import helper from './util/helper';
+
+export default {
+  ...helper
+}

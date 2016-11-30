@@ -4,7 +4,7 @@ import { createStore, combineReducers, bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 
 import { bindShuttle, createShuttleTree } from 'dist/index';
-import { helper } from 'dist/helper';
+import * as helper from 'dist/helper';
 import shuttle from './shuttle';
 
 console.log(helper);
