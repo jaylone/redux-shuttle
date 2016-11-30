@@ -1,4 +1,4 @@
-import { pipe, keys, isEmpty, map, reduce, filter, mapObjIndexed, zipObj, merge } from 'ramda';
+import { keys, isEmpty, map, reduce, filter, mapObjIndexed, zipObj, merge } from 'ramda';
 import createReducer from 'src/lib/createReducer';
 import { upperSnakeCase } from 'src/util/underscored';
 import { isNull, isUndefined, isFunction, isObject, isArray, isString } from 'src/util/validator';
@@ -71,6 +71,7 @@ export default (namespace, state, config) => {
     types,
     actions,
     handlers,
-    reducer: createReducer(state, handlers, {[REDUCER_KEY]: gid})
+    reducer: createReducer(state, handlers, {[REDUCER_KEY]: gid}),
+    namespace: namespace
   }, SHUTTLE_KEY, gid);
 }

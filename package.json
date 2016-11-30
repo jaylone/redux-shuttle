@@ -1,6 +1,6 @@
 {
   "name": "redux-shuttle",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "description": "A tool for bundling reducers, action types and actions when using redux, aesthetic toppings fro your redux meal.",
   "main": "./dist/index.js",
   "scripts": {
@@ -16,9 +16,12 @@
     "redux",
     "saga",
     "redux-saga",
+    "react",
+    "react-redux",
     "side effects",
     "shuttle",
-    "redux-shuttle"
+    "redux-shuttle",
+    "redux side effects"
   ],
   "author": "jaylone",
   "license": "MIT",
