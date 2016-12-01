@@ -1,9 +1,10 @@
-import { isObject } from './validator';
+import hash from 'blueimp-md5';
+import { isObject, isString } from './validator';
 
 const SHUTTLE_KEY = '@@redux-shuttle/SHUTTLE_KEY';
 const REDUCER_KEY = '@@redux-shuttle/REDUCER_KEY';
 
-const genKey = (key) => Symbol(key);
+const genKey = (string) => isString(string) ? hash(string) : 'error_hash';
 
 const isGenerator = (fn) => fn.constructor.name === "GeneratorFunction";
 

@@ -1,8 +1,14 @@
-import { keys, isEmpty, map, reduce, filter, mapObjIndexed, zipObj, merge } from 'ramda';
+import { keys, isEmpty, map, reduce, filter, mapObjIndexed, zipObj, merge, pipe, concat } from 'ramda';
 import createReducer from 'src/lib/createReducer';
 import { upperSnakeCase } from 'src/util/underscored';
 import { isNull, isUndefined, isFunction, isObject, isArray, isString } from 'src/util/validator';
 import { REDUCER_KEY, SHUTTLE_KEY, genKey, defineProperty } from 'src/util/helper';
+
+const typeStringify = (types) => pipe(
+  keys,
+  reduce((pre, type) => concat(pre, [types[type]]), []),
+  (list) => list.join(',')
+)(types);
 
 const addNamespace = (namespace, type) => {
   if ( isNull(namespace) || isUndefined(namespace) ) return type;
@@ -65,7 +71,7 @@ export default (namespace, state, config) => {
 
   createActionsAndReducer(actions, handlers, state, config, namespace);
 
-  const gid = genKey(SHUTTLE_KEY);
+  const gid = genKey(namespace + typeStringify(types));
   return defineProperty({
     types,
     actions,
