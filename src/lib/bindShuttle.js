@@ -11,5 +11,10 @@ export default (shuttles, mergeProps, options = {}) => {
     throw new Error('bindShuttle required \'shuttle\' or  \'object\'');
   }
 
-  return connect(mapShuttleState(shuttles), mapShuttleDispatch(shuttles), mergeProps, options = {});
+  return connect(
+    mapShuttleState(isShuttle(shuttles) ? { shuttle: shuttles } : shuttles),
+    mapShuttleDispatch(shuttles),
+    mergeProps,
+    options = {}
+  );
 }
