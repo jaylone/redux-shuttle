@@ -71,7 +71,7 @@ export default (namespace, state, config) => {
 
   createActionsAndReducer(actions, handlers, state, config, namespace);
 
-  const gid = genKey(namespace + typeStringify(types));
+  const gid = genKey(SHUTTLE_KEY);
   return defineProperty({
     types,
     actions,
