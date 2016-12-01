@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/jaylone/redux-shuttle#readme",
   "dependencies": {
-    "blueimp-md5": "^2.6.0",
     "ramda": "^0.22.1",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
