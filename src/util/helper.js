@@ -6,9 +6,10 @@ const REDUCER_KEY = '@@redux-shuttle/REDUCER_KEY';
 const genKey = (string) => Symbol(string);
 
 const isGenerator = (genFun) => {
-  return (typeof genFun === "function" && genFun.constructor)
-    ? (ctor.displayName || ctor.name) === "GeneratorFunction"
-    : false;
+  const ctor = typeof genFun === "function" ? genFun.constructor : false;
+    return ctor
+      ? (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
 };
 
 const isShuttle = (obj) => {
