@@ -1,1 +1,1 @@
-module.exports = require('./dist/underscored');
+module.exports = require('./es/underscored');

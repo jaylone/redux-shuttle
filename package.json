@@ -2,10 +2,11 @@
   "name": "redux-shuttle",
   "version": "0.2.5",
   "description": "A tool for bundling reducers, action types and actions when using redux, aesthetic toppings fro your redux meal.",
-  "main": "./dist/index.js",
+  "main": "es/index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "npm run eslint && webpack --config webpack.build.config.js -p",
+    "build:umd:prod": "npm run eslint && cross-env BABEL_ENV=prod webpack --config webpack.build.config.js -p",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "eslint": "eslint src"
   },
   "repository": {
@@ -36,6 +37,7 @@
     "redux-saga": "^0.13.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.8",
@@ -46,11 +48,13 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
+    "cross-env": "^3.1.4",
     "eslint": "^3.10.2",
     "eslint-plugin-react": "^6.7.1",
     "file-loader": "^0.9.0",
     "react": "^15.4.0",
     "react-dom": "^15.4.1",
+    "rimraf": "^2.5.4",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
