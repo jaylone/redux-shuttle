@@ -1,8 +1,8 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['module', 'exports', 'ramda', 'redux', 'src/util/validator', 'src/util/helper'], factory);
+    define(['module', 'exports', 'ramda', 'redux', '../util/validator', '../util/helper'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(module, exports, require('ramda'), require('redux'), require('src/util/validator'), require('src/util/helper'));
+    factory(module, exports, require('ramda'), require('redux'), require('../util/validator'), require('../util/helper'));
   } else {
     var mod = {
       exports: {}

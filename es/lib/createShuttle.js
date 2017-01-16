@@ -1,8 +1,8 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['module', 'exports', 'ramda', 'src/lib/createReducer', 'src/util/underscored', 'src/util/validator', 'src/util/helper'], factory);
+    define(['module', 'exports', 'ramda', './createReducer', '../util/underscored', '../util/validator', '../util/helper'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(module, exports, require('ramda'), require('src/lib/createReducer'), require('src/util/underscored'), require('src/util/validator'), require('src/util/helper'));
+    factory(module, exports, require('ramda'), require('./createReducer'), require('../util/underscored'), require('../util/validator'), require('../util/helper'));
   } else {
     var mod = {
       exports: {}

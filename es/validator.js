@@ -1,8 +1,8 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['module', 'exports', 'src/util/validator'], factory);
+    define(['module', 'exports', './util/validator'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(module, exports, require('src/util/validator'));
+    factory(module, exports, require('./util/validator'));
   } else {
     var mod = {
       exports: {}

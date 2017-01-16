@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { isObject } from 'src/util/validator';
-import { isShuttle } from 'src/util/helper';
+import { isObject } from '../util/validator';
+import { isShuttle } from '../util/helper';
 import mapShuttleState from './mapShuttleState';
 import mapShuttleDispatch from './mapShuttleDispatch';
 

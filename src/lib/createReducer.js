@@ -1,6 +1,6 @@
-import { isObject, isString, isUndefined, isNull } from 'src/util/validator';
 import { keys } from 'ramda';
-import { defineProperty } from 'src/util/helper';
+import { isObject, isString, isUndefined, isNull } from '../util/validator';
+import { defineProperty } from '../util/helper';
 
 const wrapState = (state, attach) => {
 

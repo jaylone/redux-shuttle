@@ -1,8 +1,8 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'src/lib/createShuttle', 'src/lib/createReducer', 'src/lib/bindShuttle', 'src/lib/createShuttleTree', 'src/lib/mapShuttleDispatch', 'src/lib/mapShuttleState'], factory);
+    define(['exports', './lib/createShuttle', './lib/createReducer', './lib/bindShuttle', './lib/createShuttleTree', './lib/mapShuttleDispatch', './lib/mapShuttleState'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('src/lib/createShuttle'), require('src/lib/createReducer'), require('src/lib/bindShuttle'), require('src/lib/createShuttleTree'), require('src/lib/mapShuttleDispatch'), require('src/lib/mapShuttleState'));
+    factory(exports, require('./lib/createShuttle'), require('./lib/createReducer'), require('./lib/bindShuttle'), require('./lib/createShuttleTree'), require('./lib/mapShuttleDispatch'), require('./lib/mapShuttleState'));
   } else {
     var mod = {
       exports: {}

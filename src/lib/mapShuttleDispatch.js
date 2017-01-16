@@ -1,7 +1,7 @@
 import { mapObjIndexed, merge, zipObj, keys, pipe, map } from 'ramda';
 import { bindActionCreators } from 'redux';
-import { isObject } from 'src/util/validator';
-import { isShuttle } from 'src/util/helper';
+import { isObject } from '../util/validator';
+import { isShuttle } from '../util/helper';
 
 const Actions = 'actions';
 

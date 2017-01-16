@@ -1,8 +1,8 @@
 import { keys, isEmpty, map, reduce, filter, mapObjIndexed, zipObj, merge, pipe, concat } from 'ramda';
-import createReducer from 'src/lib/createReducer';
-import { upperSnakeCase } from 'src/util/underscored';
-import { isNull, isUndefined, isFunction, isObject, isArray, isString } from 'src/util/validator';
-import { REDUCER_KEY, SHUTTLE_KEY, genKey, defineProperty } from 'src/util/helper';
+import createReducer from './createReducer';
+import { upperSnakeCase } from '../util/underscored';
+import { isNull, isUndefined, isFunction, isObject, isArray, isString } from '../util/validator';
+import { REDUCER_KEY, SHUTTLE_KEY, genKey, defineProperty } from '../util/helper';
 
 const typeStringify = (types) => pipe(
   keys,

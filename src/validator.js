@@ -1,4 +1,4 @@
-import validator from 'src/util/validator';
+import validator from './util/validator';
 
 export default {
   ...validator

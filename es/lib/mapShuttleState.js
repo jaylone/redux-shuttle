@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['module', 'exports', 'src/util/helper', 'src/util/validator', 'ramda'], factory);
+    define(['module', 'exports', 'ramda', '../util/helper', '../util/validator'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(module, exports, require('src/util/helper'), require('src/util/validator'), require('ramda'));
+    factory(module, exports, require('ramda'), require('../util/helper'), require('../util/validator'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod, mod.exports, global.helper, global.validator, global.ramda);
+    factory(mod, mod.exports, global.ramda, global.helper, global.validator);
     global.mapShuttleState = mod.exports;
   }
-})(this, function (module, exports, _helper, _validator, _ramda) {
+})(this, function (module, exports, _ramda, _helper, _validator) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {

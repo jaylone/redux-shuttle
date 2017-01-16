@@ -1,4 +1,4 @@
-import helper from 'src/util/helper';
+import helper from './util/helper';
 
 export default {
   ...helper

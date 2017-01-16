@@ -1,8 +1,8 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['module', 'exports', 'src/util/underscored.js'], factory);
+    define(['module', 'exports', './util/underscored.js'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(module, exports, require('src/util/underscored.js'));
+    factory(module, exports, require('./util/underscored.js'));
   } else {
     var mod = {
       exports: {}

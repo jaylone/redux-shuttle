@@ -1,6 +1,6 @@
-import { REDUCER_KEY, SHUTTLE_KEY, isShuttle } from 'src/util/helper';
-import { isObject, isString } from 'src/util/validator';
 import { keys, mapObjIndexed } from 'ramda';
+import { REDUCER_KEY, SHUTTLE_KEY, isShuttle } from '../util/helper';
+import { isObject, isString } from '../util/validator';
 
 const recursion = (state, reducerKey) => {
   if (isObject(state)) {

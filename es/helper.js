@@ -1,8 +1,8 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['module', 'exports', 'src/util/helper'], factory);
+    define(['module', 'exports', './util/helper'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(module, exports, require('src/util/helper'));
+    factory(module, exports, require('./util/helper'));
   } else {
     var mod = {
       exports: {}

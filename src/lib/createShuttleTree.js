@@ -1,7 +1,7 @@
 import { mapObjIndexed } from 'ramda';
 import { combineReducers } from 'redux';
-import { isObject } from 'src/util/validator';
-import { isShuttle } from 'src/util/helper';
+import { isObject } from '../util/validator';
+import { isShuttle } from '../util/helper';
 
 const reducer = 'reducer';
 

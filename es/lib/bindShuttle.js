@@ -1,8 +1,8 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['module', 'exports', 'react-redux', 'src/util/validator', 'src/util/helper', './mapShuttleState', './mapShuttleDispatch'], factory);
+    define(['module', 'exports', 'react-redux', '../util/validator', '../util/helper', './mapShuttleState', './mapShuttleDispatch'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(module, exports, require('react-redux'), require('src/util/validator'), require('src/util/helper'), require('./mapShuttleState'), require('./mapShuttleDispatch'));
+    factory(module, exports, require('react-redux'), require('../util/validator'), require('../util/helper'), require('./mapShuttleState'), require('./mapShuttleDispatch'));
   } else {
     var mod = {
       exports: {}
