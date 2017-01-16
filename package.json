@@ -1,6 +1,6 @@
 {
   "name": "redux-shuttle",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A tool for bundling reducers, action types and actions when using redux, aesthetic toppings fro your redux meal.",
   "main": "es/index.js",
   "scripts": {
