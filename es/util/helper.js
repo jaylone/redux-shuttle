@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', './validator'], factory);
+    define(['module', 'exports', './validator'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('./validator'));
+    factory(module, exports, require('./validator'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.validator);
+    factory(mod, mod.exports, global.validator);
     global.helper = mod.exports;
   }
-})(this, function (exports, _validator) {
+})(this, function (module, exports, _validator) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -61,4 +61,5 @@
     isShuttle: isShuttle,
     keyMirror: keyMirror
   };
+  module.exports = exports['default'];
 });

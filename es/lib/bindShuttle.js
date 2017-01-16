@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'react-redux', 'src/util/validator', 'src/util/helper', './mapShuttleState', './mapShuttleDispatch'], factory);
+    define(['module', 'exports', 'react-redux', 'src/util/validator', 'src/util/helper', './mapShuttleState', './mapShuttleDispatch'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('react-redux'), require('src/util/validator'), require('src/util/helper'), require('./mapShuttleState'), require('./mapShuttleDispatch'));
+    factory(module, exports, require('react-redux'), require('src/util/validator'), require('src/util/helper'), require('./mapShuttleState'), require('./mapShuttleDispatch'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.reactRedux, global.validator, global.helper, global.mapShuttleState, global.mapShuttleDispatch);
+    factory(mod, mod.exports, global.reactRedux, global.validator, global.helper, global.mapShuttleState, global.mapShuttleDispatch);
     global.bindShuttle = mod.exports;
   }
-})(this, function (exports, _reactRedux, _validator, _helper, _mapShuttleState, _mapShuttleDispatch) {
+})(this, function (module, exports, _reactRedux, _validator, _helper, _mapShuttleState, _mapShuttleDispatch) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -39,4 +39,6 @@
 
     return (0, _reactRedux.connect)((0, _mapShuttleState2.default)((0, _helper.isShuttle)(shuttles) ? { shuttle: shuttles } : shuttles), (0, _mapShuttleDispatch2.default)(shuttles), mergeProps, options = {});
   };
+
+  module.exports = exports['default'];
 });

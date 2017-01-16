@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'ramda', 'redux', 'src/util/validator', 'src/util/helper'], factory);
+    define(['module', 'exports', 'ramda', 'redux', 'src/util/validator', 'src/util/helper'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('ramda'), require('redux'), require('src/util/validator'), require('src/util/helper'));
+    factory(module, exports, require('ramda'), require('redux'), require('src/util/validator'), require('src/util/helper'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.ramda, global.redux, global.validator, global.helper);
+    factory(mod, mod.exports, global.ramda, global.redux, global.validator, global.helper);
     global.mapShuttleDispatch = mod.exports;
   }
-})(this, function (exports, _ramda, _redux, _validator, _helper) {
+})(this, function (module, exports, _ramda, _redux, _validator, _helper) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -42,4 +42,6 @@
       return (0, _ramda.merge)((0, _ramda.zipObj)(actionKeys, actions), { dispatch: dispatch });
     };
   };
+
+  module.exports = exports['default'];
 });

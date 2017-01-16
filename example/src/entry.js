@@ -3,8 +3,8 @@ import ReactDom from 'react-dom';
 import { createStore, combineReducers, bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 
-import { bindShuttle, createShuttleTree } from 'dist/index';
-import helper from 'dist/underscored';
+import { bindShuttle, createShuttleTree } from 'es/index';
+import helper from 'es/underscored';
 import shuttle from './shuttle';
 
 console.log(helper);
@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <div>
         <p>Hello world.</p>
-        <p>{ props.list.join(' ') }</p>
+        <p>{ props.shuttle.list.join(' ') }</p>
         <button onClick={::this.setList}>Set List</button>
       </div>
     )

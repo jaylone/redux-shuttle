@@ -1,12 +1,13 @@
 {
   "name": "redux-shuttle",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A tool for bundling reducers, action types and actions when using redux, aesthetic toppings fro your redux meal.",
   "main": "es/index.js",
   "scripts": {
     "start": "node server.js",
     "build:umd:prod": "npm run eslint && cross-env BABEL_ENV=prod webpack --config webpack.build.config.js -p",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build:es": "babel src --out-dir es",
+    "prepublish": "npm run build:es && npm run build:umd:prod",
     "eslint": "eslint src"
   },
   "repository": {

@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'ramda'], factory);
+    define(['module', 'exports', 'ramda'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('ramda'));
+    factory(module, exports, require('ramda'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.ramda);
+    factory(mod, mod.exports, global.ramda);
     global.underscored = mod.exports;
   }
-})(this, function (exports, _ramda) {
+})(this, function (module, exports, _ramda) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -31,4 +31,5 @@
     upperSnakeCase: upperSnakeCase,
     lowerSnakeCase: lowerSnakeCase
   };
+  module.exports = exports['default'];
 });

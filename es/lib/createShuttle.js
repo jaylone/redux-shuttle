@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'ramda', 'src/lib/createReducer', 'src/util/underscored', 'src/util/validator', 'src/util/helper'], factory);
+    define(['module', 'exports', 'ramda', 'src/lib/createReducer', 'src/util/underscored', 'src/util/validator', 'src/util/helper'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('ramda'), require('src/lib/createReducer'), require('src/util/underscored'), require('src/util/validator'), require('src/util/helper'));
+    factory(module, exports, require('ramda'), require('src/lib/createReducer'), require('src/util/underscored'), require('src/util/validator'), require('src/util/helper'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.ramda, global.createReducer, global.underscored, global.validator, global.helper);
+    factory(mod, mod.exports, global.ramda, global.createReducer, global.underscored, global.validator, global.helper);
     global.createShuttle = mod.exports;
   }
-})(this, function (exports, _ramda, _createReducer2, _underscored, _validator, _helper) {
+})(this, function (module, exports, _ramda, _createReducer2, _underscored, _validator, _helper) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -141,4 +141,6 @@
       namespace: namespace
     }, _helper.SHUTTLE_KEY, gid);
   };
+
+  module.exports = exports['default'];
 });

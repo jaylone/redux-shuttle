@@ -1,15 +1,8 @@
 {
+  "presets": [ "es2015", "stage-0", "react" ],
   "plugins": [
     "transform-decorators-legacy",
     "add-module-exports",
     "transform-es2015-modules-umd"
-  ],
-  "env": {
-    "prod": {
-      "presets": [ "es2015", "stage-0", "react" ]
-    },
-    "es": {
-      "presets": [ ["es2015", { "module": false }], "stage-0", "react" ]
-    }
-  }
+  ]
 }

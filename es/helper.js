@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'src/util/helper'], factory);
+    define(['module', 'exports', 'src/util/helper'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('src/util/helper'));
+    factory(module, exports, require('src/util/helper'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.helper);
+    factory(mod, mod.exports, global.helper);
     global.helper = mod.exports;
   }
-})(this, function (exports, _helper) {
+})(this, function (module, exports, _helper) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -40,4 +40,5 @@
   };
 
   exports.default = _extends({}, _helper2.default);
+  module.exports = exports['default'];
 });

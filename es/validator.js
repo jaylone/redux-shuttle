@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'src/util/validator'], factory);
+    define(['module', 'exports', 'src/util/validator'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('src/util/validator'));
+    factory(module, exports, require('src/util/validator'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.validator);
+    factory(mod, mod.exports, global.validator);
     global.validator = mod.exports;
   }
-})(this, function (exports, _validator) {
+})(this, function (module, exports, _validator) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -40,4 +40,5 @@
   };
 
   exports.default = _extends({}, _validator2.default);
+  module.exports = exports['default'];
 });

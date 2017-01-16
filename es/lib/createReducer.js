@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'src/util/validator', 'ramda', 'src/util/helper'], factory);
+    define(['module', 'exports', 'src/util/validator', 'ramda', 'src/util/helper'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('src/util/validator'), require('ramda'), require('src/util/helper'));
+    factory(module, exports, require('src/util/validator'), require('ramda'), require('src/util/helper'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.validator, global.ramda, global.helper);
+    factory(mod, mod.exports, global.validator, global.ramda, global.helper);
     global.createReducer = mod.exports;
   }
-})(this, function (exports, _validator, _ramda, _helper) {
+})(this, function (module, exports, _validator, _ramda, _helper) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -59,4 +59,5 @@
       return nextState;
     };
   }
+  module.exports = exports['default'];
 });

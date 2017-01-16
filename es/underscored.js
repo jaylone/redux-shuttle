@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'src/util/underscored.js'], factory);
+    define(['module', 'exports', 'src/util/underscored.js'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('src/util/underscored.js'));
+    factory(module, exports, require('src/util/underscored.js'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.underscored);
+    factory(mod, mod.exports, global.underscored);
     global.underscored = mod.exports;
   }
-})(this, function (exports, _underscored) {
+})(this, function (module, exports, _underscored) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -40,4 +40,5 @@
   };
 
   exports.default = _extends({}, _underscored2.default);
+  module.exports = exports['default'];
 });
