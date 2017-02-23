@@ -7,8 +7,6 @@ import { bindShuttle, createShuttleTree } from 'es/index';
 import helper from 'es/underscored';
 import shuttle from './shuttle';
 
-console.log(helper);
-
 const reducers = createShuttleTree({ shuttle });
 
 @bindShuttle(shuttle)
@@ -40,3 +38,7 @@ ReactDom.render(
   </Provider>,
   document.getElementById('root')
 );
+
+if(module.hot) {
+  module.hot.accept();
+}
