@@ -1,6 +1,6 @@
 {
   "name": "redux-shuttle",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A tool for bundling reducers, action types and actions when using redux, aesthetic toppings fro your redux meal.",
   "main": "es/index.js",
   "scripts": {
@@ -34,8 +34,7 @@
   "dependencies": {
     "ramda": "^0.22.1",
     "react-redux": "^4.4.6",
-    "redux": "^3.6.0",
-    "redux-saga": "^0.13.0"
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -55,6 +54,7 @@
     "file-loader": "^0.9.0",
     "react": "^15.4.0",
     "react-dom": "^15.4.1",
+    "redux-saga": "^0.15.4",
     "rimraf": "^2.5.4",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
