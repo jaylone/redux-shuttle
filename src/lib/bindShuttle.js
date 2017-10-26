@@ -15,6 +15,6 @@ export default (shuttles, mergeProps, options = {}) => {
     mapShuttleState(isShuttle(shuttles) ? { shuttle: shuttles } : shuttles),
     mapShuttleDispatch(shuttles),
     mergeProps,
-    options = {}
+    options
   );
 }
