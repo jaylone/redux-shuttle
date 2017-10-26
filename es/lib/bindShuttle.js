@@ -37,7 +37,7 @@
       throw new Error('bindShuttle required \'shuttle\' or  \'object\'');
     }
 
-    return (0, _reactRedux.connect)((0, _mapShuttleState2.default)((0, _helper.isShuttle)(shuttles) ? { shuttle: shuttles } : shuttles), (0, _mapShuttleDispatch2.default)(shuttles), mergeProps, options = {});
+    return (0, _reactRedux.connect)((0, _mapShuttleState2.default)((0, _helper.isShuttle)(shuttles) ? { shuttle: shuttles } : shuttles), (0, _mapShuttleDispatch2.default)(shuttles), mergeProps, options);
   };
 
   module.exports = exports['default'];
