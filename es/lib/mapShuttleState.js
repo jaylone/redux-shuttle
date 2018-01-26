@@ -17,35 +17,22 @@
     value: true
   });
 
-  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  };
 
   var recursion = function recursion(state, reducerKey) {
     if ((0, _validator.isObject)(state)) {
-      var _ret = function () {
-        var hitReducer = {};
-        if (state[_helper.REDUCER_KEY] === reducerKey) {
-          hitReducer = state;
-          return {
-            v: hitReducer
-          };
-        }
+      var hitReducer = {};
+      if (state[_helper.REDUCER_KEY] === reducerKey) {
+        hitReducer = state;
+        return hitReducer;
+      }
 
-        var stateKeys = (0, _ramda.keys)(state);
-        var hit = stateKeys.some(function (key) {
-          hitReducer = recursion(state[key], reducerKey);
-          return Boolean(hitReducer);
-        });
+      var stateKeys = (0, _ramda.keys)(state);
+      var hit = stateKeys.some(function (key) {
+        hitReducer = recursion(state[key], reducerKey);
+        return Boolean(hitReducer);
+      });
 
-        return {
-          v: hit ? hitReducer : false
-        };
-      }();
-
-      if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+      return hit ? hitReducer : false;
     }
   };
 

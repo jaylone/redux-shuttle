@@ -71,23 +71,21 @@
       var type = addNamespace(namespace, key);
 
       if ((0, _validator.isArray)(item)) {
-        (function () {
-          var params = (0, _ramda.filter)(function (value) {
-            return (0, _validator.isString)(value);
-          }, item);
-          actions[key] = function () {
-            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-              args[_key] = arguments[_key];
-            }
+        var params = (0, _ramda.filter)(function (value) {
+          return (0, _validator.isString)(value);
+        }, item);
+        actions[key] = function () {
+          for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
 
-            return (0, _ramda.merge)({ type: type }, (0, _ramda.zipObj)(params, args));
-          };
+          return (0, _ramda.merge)({ type: type }, (0, _ramda.zipObj)(params, args));
+        };
 
-          var reducers = (0, _ramda.filter)(function (value) {
-            return (0, _validator.isFunction)(value);
-          }, item);
-          if (reducers.length > 0) handlers[type] = reducers[0];
-        })();
+        var reducers = (0, _ramda.filter)(function (value) {
+          return (0, _validator.isFunction)(value);
+        }, item);
+        if (reducers.length > 0) handlers[type] = reducers[0];
       } else if ((0, _validator.isNull)(item) || (0, _validator.isUndefined)(item)) {
         actions[key] = function () {
           return { type: type };
