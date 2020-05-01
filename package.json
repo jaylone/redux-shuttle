@@ -7,8 +7,9 @@
     "start": "node server.js",
     "build:umd:prod": "npm run eslint && cross-env NODE_ENV=production BABEL_ENV=prod webpack --config webpack.build.config.js -p",
     "build:es": "babel src --out-dir es",
-    "prepublish": "npm run build:es && npm run build:umd:prod",
-    "eslint": "eslint src"
+    "prepublish": "yarn run snyk-protect && npm run build:es && npm run build:umd:prod",
+    "eslint": "eslint src",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,8 @@
   "dependencies": {
     "ramda": "^0.22.1",
     "react-redux": "^4.4.6",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "snyk": "^1.316.2"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -69,5 +71,6 @@
         "*.js"
       ]
     }
-  ]
+  ],
+  "snyk": true
 }
